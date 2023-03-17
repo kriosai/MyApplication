@@ -14,10 +14,10 @@ class NewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new)
 
-        val button = findViewById<Button>(R.id.button)
-        val text = findViewById<TextView>(R.id.textView)
+        val text1 = findViewById<TextView>(R.id.textView)
+        val text2 = findViewById<TextView>(R.id.textView2)
 
-        val extra = intent.getStringExtra(INTENT_NAME)
-        text.text = extra
+        val extra1 = intent.getStringExtra(INTENT_NAME)
+        text1.text = extra1
         }
     }

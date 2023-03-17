@@ -14,13 +14,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button = findViewById<Button>(R.id.button)
+        val button2 = findViewById<Button>(R.id.button2)
+
+
         val text = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
         val intent = Intent(this, NewActivity::class.java)
 
         button.setOnClickListener {
-            val resultText = editText.text.toString()
-            intent.putExtra(NewActivity.INTENT_NAME, resultText)
+            val resultText1 = editText.text.toString()
+            intent.putExtra(NewActivity.INTENT_NAME, resultText1)
+            startActivity(intent)
+        }
+        button2.setOnClickListener {
+            val resultText2 = editText.text.toString()
+            intent.putExtra(NewActivity.INTENT_NAME, resultText2)
             startActivity(intent)
         }
     }
