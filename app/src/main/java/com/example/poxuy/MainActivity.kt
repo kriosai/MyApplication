@@ -3,8 +3,6 @@ package com.example.poxuy
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,23 +11,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.button)
+        val button1 = findViewById<Button>(R.id.button1)
         val button2 = findViewById<Button>(R.id.button2)
+        val resultText1 = "Кнопка 1"
+        val resultText2 = "Кнопка 2"
 
+        val intent1 = Intent(this, NewActivity::class.java)
+        val intent2 = Intent(this, NewActivity::class.java)
 
-        val text = findViewById<TextView>(R.id.textView)
-        val editText = findViewById<EditText>(R.id.editText)
-        val intent = Intent(this, NewActivity::class.java)
-
-        button.setOnClickListener {
-            val resultText1 = editText.text.toString()
-            intent.putExtra(NewActivity.INTENT_NAME, resultText1)
-            startActivity(intent)
+        button1.setOnClickListener {
+            intent1.putExtra(NewActivity.INTENT_NAME1,resultText1)
+            startActivity(intent1)
         }
         button2.setOnClickListener {
-            val resultText2 = editText.text.toString()
-            intent.putExtra(NewActivity.INTENT_NAME, resultText2)
-            startActivity(intent)
+            intent2.putExtra(NewActivity.INTENT_NAME2,resultText2)
+            startActivity(intent2)
         }
     }
 }
