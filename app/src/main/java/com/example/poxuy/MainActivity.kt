@@ -1,31 +1,40 @@
 package com.example.poxuy
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private val file = "SharedPreferences"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button1 = findViewById<Button>(R.id.button1)
-        val button2 = findViewById<Button>(R.id.button2)
-        val resultText1 = "Кнопка 1"
-        val resultText2 = "Кнопка 2"
+        val sharedPreferences = getSharedPreferences(file, Context.MODE_PRIVATE)
+        val edit = sharedPreferences.edit()
 
-        val intent1 = Intent(this, NewActivity::class.java)
-        val intent2 = Intent(this, NewActivity::class.java)
 
-        button1.setOnClickListener {
-            intent1.putExtra(NewActivity.INTENT_NAME1,resultText1)
-            startActivity(intent1)
+
+        val save = findViewById<Button>(R.id.save)
+        val textView = findViewById<TextView>(R.id.textView)
+        val editText = findViewById<EditText>(R.id.editText)
+        val load = findViewById<Button>(R.id.load)
+
+
+        save.setOnClickListener {
+            val textSave = editText.text.toString()
+            edit.putString("key", textSave).commit()
         }
-        button2.setOnClickListener {
-            intent2.putExtra(NewActivity.INTENT_NAME2,resultText2)
-            startActivity(intent2)
+        load.setOnClickListener {
+            val pullOut = sharedPreferences.getString("key", "Ты гей")
+            textView.text = pullOut
         }
+
     }
 }
