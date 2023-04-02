@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">poxuy</string>
-    <string name="button_text1">Save</string>
-    <string name="button_text2">Load</string>
+    <string name="button_text1">Сохранить</string>
+    <string name="button_text2">Открыть новый экран</string>
     <string name="TextView_text">Здесь должен быть текст</string>
+    <string name="textview">TextView</string>
 </resources>

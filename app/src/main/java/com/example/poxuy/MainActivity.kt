@@ -22,18 +22,20 @@ class MainActivity : AppCompatActivity() {
 
 
         val save = findViewById<Button>(R.id.save)
-        val textView = findViewById<TextView>(R.id.textView)
+        //val textView = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
         val load = findViewById<Button>(R.id.load)
+        val intent = Intent(this, NewActivity::class.java)
 
 
         save.setOnClickListener {
             val textSave = editText.text.toString()
-            edit.putString("key", textSave).commit()
+            edit.putString("key", textSave).apply()
         }
         load.setOnClickListener {
-            val pullOut = sharedPreferences.getString("key", "Ты гей")
-            textView.text = pullOut
+            sharedPreferences.getString("key", "Ты гей")
+            startActivity(intent)
+            // textView.text = pullOut
         }
 
     }
