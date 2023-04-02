@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
 
         val save = findViewById<Button>(R.id.save)
-        //val textView = findViewById<TextView>(R.id.textView)
         val editText = findViewById<EditText>(R.id.editText)
         val load = findViewById<Button>(R.id.load)
         val intent = Intent(this, NewActivity::class.java)
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         load.setOnClickListener {
             sharedPreferences.getString("key", "Ты гей")
             startActivity(intent)
-            // textView.text = pullOut
         }
 
     }
